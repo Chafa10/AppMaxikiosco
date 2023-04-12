@@ -1,0 +1,6 @@
+C:\Users\javie\source\repos\MaxiKiosco\CapaDominio\bin\Debug\CapaDominio.dll
+C:\Users\javie\source\repos\MaxiKiosco\CapaDominio\bin\Debug\CapaDominio.pdb
+C:\Users\javie\source\repos\MaxiKiosco\CapaDominio\obj\Debug\CapaDominio.csproj.AssemblyReference.cache
+C:\Users\javie\source\repos\MaxiKiosco\CapaDominio\obj\Debug\CapaDominio.csproj.CoreCompileInputs.cache
+C:\Users\javie\source\repos\MaxiKiosco\CapaDominio\obj\Debug\CapaDominio.dll
+C:\Users\javie\source\repos\MaxiKiosco\CapaDominio\obj\Debug\CapaDominio.pdb

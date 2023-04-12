@@ -1,0 +1,9 @@
+C:\Users\javie\source\repos\MaxiKiosco\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\javie\source\repos\MaxiKiosco\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\javie\source\repos\MaxiKiosco\CapaNegocio\bin\Debug\CapaDominio.dll
+C:\Users\javie\source\repos\MaxiKiosco\CapaNegocio\bin\Debug\CapaDominio.pdb
+C:\Users\javie\source\repos\MaxiKiosco\CapaNegocio\obj\Debug\CapaNegocio.csproj.AssemblyReference.cache
+C:\Users\javie\source\repos\MaxiKiosco\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\javie\source\repos\MaxiKiosco\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
+C:\Users\javie\source\repos\MaxiKiosco\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\javie\source\repos\MaxiKiosco\CapaNegocio\obj\Debug\CapaNegocio.pdb
