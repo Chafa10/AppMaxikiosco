@@ -13,19 +13,5 @@ C:\Users\javie\source\repos\MaxiKiosco\MaxiKiosco\obj\Debug\MaxiKiosco.csproj.Co
 C:\Users\javie\source\repos\MaxiKiosco\MaxiKiosco\obj\Debug\MaxiKiosco.exe
 C:\Users\javie\source\repos\MaxiKiosco\MaxiKiosco\obj\Debug\MaxiKiosco.pdb
 C:\Users\javie\source\repos\MaxiKiosco\MaxiKiosco\obj\Debug\MaxiKiosco.frmProducto.resources
-C:\Users\javie\OneDrive\Desktop\Repo github\AppMaxikiosco\MaxiKiosco\bin\Debug\MaxiKiosco.exe.config
-C:\Users\javie\OneDrive\Desktop\Repo github\AppMaxikiosco\MaxiKiosco\bin\Debug\MaxiKiosco.exe
-C:\Users\javie\OneDrive\Desktop\Repo github\AppMaxikiosco\MaxiKiosco\bin\Debug\MaxiKiosco.pdb
-C:\Users\javie\OneDrive\Desktop\Repo github\AppMaxikiosco\MaxiKiosco\bin\Debug\CapaDominio.dll
-C:\Users\javie\OneDrive\Desktop\Repo github\AppMaxikiosco\MaxiKiosco\bin\Debug\CapaNegocio.dll
-C:\Users\javie\OneDrive\Desktop\Repo github\AppMaxikiosco\MaxiKiosco\bin\Debug\CapaDominio.pdb
-C:\Users\javie\OneDrive\Desktop\Repo github\AppMaxikiosco\MaxiKiosco\bin\Debug\CapaNegocio.pdb
-C:\Users\javie\OneDrive\Desktop\Repo github\AppMaxikiosco\MaxiKiosco\obj\Debug\MaxiKiosco.csproj.AssemblyReference.cache
-C:\Users\javie\OneDrive\Desktop\Repo github\AppMaxikiosco\MaxiKiosco\obj\Debug\MaxiKiosco.csproj.SuggestedBindingRedirects.cache
-C:\Users\javie\OneDrive\Desktop\Repo github\AppMaxikiosco\MaxiKiosco\obj\Debug\MaxiKiosco.frmProducto.resources
-C:\Users\javie\OneDrive\Desktop\Repo github\AppMaxikiosco\MaxiKiosco\obj\Debug\MaxiKiosco.Properties.Resources.resources
-C:\Users\javie\OneDrive\Desktop\Repo github\AppMaxikiosco\MaxiKiosco\obj\Debug\MaxiKiosco.csproj.GenerateResource.cache
-C:\Users\javie\OneDrive\Desktop\Repo github\AppMaxikiosco\MaxiKiosco\obj\Debug\MaxiKiosco.csproj.CoreCompileInputs.cache
-C:\Users\javie\OneDrive\Desktop\Repo github\AppMaxikiosco\MaxiKiosco\obj\Debug\MaxiKiosco.csproj.CopyComplete
-C:\Users\javie\OneDrive\Desktop\Repo github\AppMaxikiosco\MaxiKiosco\obj\Debug\MaxiKiosco.exe
-C:\Users\javie\OneDrive\Desktop\Repo github\AppMaxikiosco\MaxiKiosco\obj\Debug\MaxiKiosco.pdb
+C:\Users\javie\source\repos\MaxiKiosco\MaxiKiosco\obj\Debug\MaxiKiosco.frmAltaProducto.resources
+C:\Users\javie\source\repos\MaxiKiosco\MaxiKiosco\obj\Debug\MaxiKiosco.frmAltaProvedor.resources

@@ -23,6 +23,18 @@ namespace MaxiKiosco
         
         private void Producto_Load(object sender, EventArgs e)
         {
+            cargarListas();
+        }
+
+        public void OcultarColumnasProducto()
+        {
+            dgvProductos.Columns["id"].Visible = false;
+            dgvProductos.Columns["idProvedor"].Visible = false;
+
+        }
+
+        public void cargarListas()
+        {
             ProductoNegocio negocio = new ProductoNegocio();
             listaProductos = negocio.listarProducto();
             dgvProductos.DataSource = listaProductos;
@@ -32,13 +44,6 @@ namespace MaxiKiosco
             listaProvedor = provedorNegocio.listaProvedor();
             dgvProvedor.DataSource = listaProvedor;
             OcultarColumnasProvedor();
-        }
-
-        public void OcultarColumnasProducto()
-        {
-            dgvProductos.Columns["id"].Visible = false;
-            dgvProductos.Columns["idProvedor"].Visible = false;
-
         }
 
         public void OcultarColumnasProvedor()
@@ -74,6 +79,21 @@ namespace MaxiKiosco
                 dgvProvedor.DataSource = listaProvedorFiltrada;
                 OcultarColumnasProvedor();
             }
+        }
+
+        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        {
+            frmAltaProducto altaProducto = new frmAltaProducto();
+            altaProducto.ShowDialog();
+            cargarListas();
+            
+        }
+
+        private void btnAgregarProvedor_Click(object sender, EventArgs e)
+        {
+            frmAltaProvedor altaProvedor = new frmAltaProvedor();
+            altaProvedor.ShowDialog();
+            cargarListas();
         }
     }
 }

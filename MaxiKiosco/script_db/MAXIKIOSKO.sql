@@ -1,52 +1,49 @@
 create database MAXIKIOSCO_DB
 
-create table provedor(
-id int identity,
-nom_razonsocial varchar(30) not null,
-telefono int not null,
-mail varchar(40) not null,
-direccion varchar(50) not null,
-cuit int not null,
-activo bit default 1,
-primary key (id)
+create table PROVEDOR(
+Id int identity,
+Nom_razonsocial varchar(30) not null,
+Telefono int not null,
+Mail varchar(40) not null,
+Direccion varchar(50) not null,
+Cuit int not null,
+Activo bit default 1,
+primary key (Id)
 )
 
-select id, nom_razonsocial, telefono, mail, direccion, cuit, activo from provedor
 
-insert into provedor
+
+insert into PROVEDOR
 values ('Coca Cola sociedad anonima', 11338742, 'cocacolasociedadanonima@gmail.com',
 'avenida siempre viva', 298649213, 1)
-insert into provedor
+insert into PROVEDOR
 values ('Playadito sociedad', 31245645, 'YerbaPlayadito@gmail.com',
 'calle falsa 123', 543526546, 1)
-insert into provedor
+insert into PROVEDOR
 values ('Taragui', 21242354, 'Taraguilala@gmail.com',
 'calle lala', 312412452, 1)
 
 
-create table producto(
-id int identity,
-categoria varchar(25) not null,
-marca varchar(25) not null,
-cantidad int not null default 1,
-stockMinimo int not null default 1,
-stockMaximo int not null default 1,
-precio int not null,
-activo bit default 1,
-idProvedor int,
-primary key(id),
-foreign key (idProvedor) references provedor(id)
+create table PRODUCTO(
+Id int identity,
+Categoria varchar(25) not null,
+Marca varchar(25) not null,
+Cantidad int not null default 1,
+StockMinimo int not null default 1,
+StockMaximo int not null default 1,
+Precio int not null,
+Activo bit default 1,
+IdProvedor int,
+primary key(Id),
+foreign key (IdProvedor) references PROVEDOR(Id)
 )
 
-insert into producto
+insert into PRODUCTO
 values ('Gaseosa','Coca Cola', 100, 60, 200, 500, 1, 1)
-insert into producto
+insert into PRODUCTO
 values ('Yerba','Playadito', 30, 10, 30, 300, 1, 1)
-insert into producto
+insert into PRODUCTO
 values ('Yerba','Taragui', 30, 10, 30, 330, 1, 1)
 
-select id, categoria Categoria, marca Marca, stockMinimo 'Stock Minimo', cantidad 'Cantidad',
-stockMinimo 'Stock Minimo',precio Precio, activo Activo, idProvedor 'Id Del Provedor'
-from producto
 
-select * from producto
+select * from PRODUCTO

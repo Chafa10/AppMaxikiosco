@@ -16,24 +16,51 @@ namespace CapaNegocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.SetearConsulta("select id, nom_razonsocial, telefono, mail, direccion, cuit, activo from provedor");
+                datos.SetearConsulta("select Id, Nom_razonsocial, Telefono, Mail, Direccion, Cuit, Activo from PROVEDOR");
                 datos.EjectuarLectura();
 
                 while (datos.Lector.Read())
                 {
                     Provedor auxiliar = new Provedor();
-                    auxiliar.Id = (int)datos.Lector["id"];
-                    auxiliar.Nombre = (string)datos.Lector["nom_razonsocial"];
-                    auxiliar.Telefono = (int)datos.Lector["telefono"];
-                    auxiliar.Mail = (string)datos.Lector["mail"];
-                    auxiliar.Direccion = (string)datos.Lector["direccion"];
-                    auxiliar.Cuit = (int)datos.Lector["cuit"];
-                    auxiliar.Activo = (bool)datos.Lector["activo"];
+                    auxiliar.Id = (int)datos.Lector["Id"];
+                    auxiliar.Nombre = (string)datos.Lector["Nom_razonsocial"];
+                    auxiliar.Telefono = (int)datos.Lector["Telefono"];
+                    auxiliar.Mail = (string)datos.Lector["Mail"];
+                    auxiliar.Direccion = (string)datos.Lector["Direccion"];
+                    auxiliar.Cuit = (int)datos.Lector["Cuit"];
+                    auxiliar.Activo = (bool)datos.Lector["Activo"];
 
                     lista.Add(auxiliar);
                 }
 
                 return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+
+        public void agregarProvedor(Provedor nuevoProvedor)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetearConsulta("insert into PROVEDOR VALUES(@nombre, @telefono, @mail, @direccion, @cuit, @activo)");
+                datos.SetearParametro("@nombre",nuevoProvedor.Nombre);
+                datos.SetearParametro("@telefono", nuevoProvedor.Telefono);
+                datos.SetearParametro("@mail", nuevoProvedor.Mail);
+                datos.SetearParametro("@direccion", nuevoProvedor.Direccion);
+                datos.SetearParametro("@cuit", nuevoProvedor.Cuit);
+                datos.SetearParametro("@activo", nuevoProvedor.Activo);
+
+                datos.EjecutarAccion();
             }
             catch (Exception ex)
             {

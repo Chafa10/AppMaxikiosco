@@ -37,6 +37,12 @@ namespace MaxiKiosco
             this.lblFiltroProvedor = new System.Windows.Forms.Label();
             this.lblLProductos = new System.Windows.Forms.Label();
             this.lblLProvedor = new System.Windows.Forms.Label();
+            this.btnAgregarProducto = new System.Windows.Forms.Button();
+            this.btnModificarProducto = new System.Windows.Forms.Button();
+            this.btnEliminarProducto = new System.Windows.Forms.Button();
+            this.btnElimiarProvedor = new System.Windows.Forms.Button();
+            this.btnModificarProvedor = new System.Windows.Forms.Button();
+            this.btnAgregarProvedor = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProvedor)).BeginInit();
             this.SuspendLayout();
@@ -120,11 +126,73 @@ namespace MaxiKiosco
             this.lblLProvedor.TabIndex = 7;
             this.lblLProvedor.Text = "Lista Provedores";
             // 
+            // btnAgregarProducto
+            // 
+            this.btnAgregarProducto.Location = new System.Drawing.Point(148, 521);
+            this.btnAgregarProducto.Name = "btnAgregarProducto";
+            this.btnAgregarProducto.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregarProducto.TabIndex = 8;
+            this.btnAgregarProducto.Text = "Agregar";
+            this.btnAgregarProducto.UseVisualStyleBackColor = true;
+            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
+            // 
+            // btnModificarProducto
+            // 
+            this.btnModificarProducto.Location = new System.Drawing.Point(272, 521);
+            this.btnModificarProducto.Name = "btnModificarProducto";
+            this.btnModificarProducto.Size = new System.Drawing.Size(75, 23);
+            this.btnModificarProducto.TabIndex = 9;
+            this.btnModificarProducto.Text = "Modificar";
+            this.btnModificarProducto.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminarProducto
+            // 
+            this.btnEliminarProducto.Location = new System.Drawing.Point(395, 521);
+            this.btnEliminarProducto.Name = "btnEliminarProducto";
+            this.btnEliminarProducto.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminarProducto.TabIndex = 10;
+            this.btnEliminarProducto.Text = "Eliminar";
+            this.btnEliminarProducto.UseVisualStyleBackColor = true;
+            // 
+            // btnElimiarProvedor
+            // 
+            this.btnElimiarProvedor.Location = new System.Drawing.Point(1160, 521);
+            this.btnElimiarProvedor.Name = "btnElimiarProvedor";
+            this.btnElimiarProvedor.Size = new System.Drawing.Size(75, 23);
+            this.btnElimiarProvedor.TabIndex = 13;
+            this.btnElimiarProvedor.Text = "Eliminar";
+            this.btnElimiarProvedor.UseVisualStyleBackColor = true;
+            // 
+            // btnModificarProvedor
+            // 
+            this.btnModificarProvedor.Location = new System.Drawing.Point(1037, 521);
+            this.btnModificarProvedor.Name = "btnModificarProvedor";
+            this.btnModificarProvedor.Size = new System.Drawing.Size(75, 23);
+            this.btnModificarProvedor.TabIndex = 12;
+            this.btnModificarProvedor.Text = "Modificar";
+            this.btnModificarProvedor.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregarProvedor
+            // 
+            this.btnAgregarProvedor.Location = new System.Drawing.Point(913, 521);
+            this.btnAgregarProvedor.Name = "btnAgregarProvedor";
+            this.btnAgregarProvedor.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregarProvedor.TabIndex = 11;
+            this.btnAgregarProvedor.Text = "Agregar";
+            this.btnAgregarProvedor.UseVisualStyleBackColor = true;
+            this.btnAgregarProvedor.Click += new System.EventHandler(this.btnAgregarProvedor_Click);
+            // 
             // frmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1413, 646);
+            this.Controls.Add(this.btnElimiarProvedor);
+            this.Controls.Add(this.btnModificarProvedor);
+            this.Controls.Add(this.btnAgregarProvedor);
+            this.Controls.Add(this.btnEliminarProducto);
+            this.Controls.Add(this.btnModificarProducto);
+            this.Controls.Add(this.btnAgregarProducto);
             this.Controls.Add(this.lblLProvedor);
             this.Controls.Add(this.lblLProductos);
             this.Controls.Add(this.lblFiltroProvedor);
@@ -153,5 +221,11 @@ namespace MaxiKiosco
         private System.Windows.Forms.Label lblFiltroProvedor;
         private System.Windows.Forms.Label lblLProductos;
         private System.Windows.Forms.Label lblLProvedor;
+        private System.Windows.Forms.Button btnAgregarProducto;
+        private System.Windows.Forms.Button btnModificarProducto;
+        private System.Windows.Forms.Button btnEliminarProducto;
+        private System.Windows.Forms.Button btnElimiarProvedor;
+        private System.Windows.Forms.Button btnModificarProvedor;
+        private System.Windows.Forms.Button btnAgregarProvedor;
     }
 }
