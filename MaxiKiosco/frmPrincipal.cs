@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,14 +8,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaDominio;
 
 namespace MaxiKiosco
 {
     public partial class frmPrincipal : Form
     {
+        private Usuario user = null;
+
+        public frmPrincipal(Usuario user)
+        {
+            InitializeComponent();
+            this.user = user;
+            lblNombre.Text = user.Nombre + " " + user.Apellido;
+            if (user.Rol.Id == 1)
+            {
+                lblUsuarioTipo.Text = "Administrador";
+            }
+            else
+            {
+                lblUsuarioTipo.Text = "Vendedor";
+            }
+
+
+
+        }
         public frmPrincipal()
         {
             InitializeComponent();
+           
         }
 
         private void btnProducto_Click(object sender, EventArgs e)
@@ -29,6 +51,7 @@ namespace MaxiKiosco
             formProductos pantalla = new formProductos();
             pantalla.Show();
             this.Close();
+
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
@@ -36,6 +59,7 @@ namespace MaxiKiosco
             formClientes pantalla = new formClientes();
             pantalla.Show();
             this.Close();
+            
         }
 
         private void btnCompras_Click(object sender, EventArgs e)
@@ -43,6 +67,52 @@ namespace MaxiKiosco
             frmCompras pantalla = new frmCompras();
             pantalla.Show();
             this.Close();
+
+        }
+        int mx, my;
+        bool m = false;
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            m = true; mx = e.X; my = e.Y;
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (m == true)
+            {
+                this.SetDesktopLocation(MousePosition.X - mx - 0, MousePosition.Y - my);
+
+            }
+        }
+
+        private void btnMinimixar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            frmLogin pantalla = new frmLogin();
+            pantalla.Show();
+            this.Close();
+        }
+
+        private void btnAgregarUsuario_Click(object sender, EventArgs e)
+        {
+            frmUsuario ventana = new frmUsuario();
+            ventana.Show();
+            this.Close();
+        }
+
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            m = false;
         }
     }
 }

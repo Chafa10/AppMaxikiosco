@@ -16,7 +16,7 @@ namespace MaxiKiosco
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            frmPrincipal main = new frmPrincipal();
+            frmLogin main = new frmLogin();
             main.FormClosed += MainForm_Closed; // agrega esto aquí
             main.Show();
             Application.Run();

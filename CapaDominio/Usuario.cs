@@ -8,10 +8,13 @@ namespace CapaDominio
 {
     public class Usuario
     {
-        public int IdUsuario { get; set; }
         public string NomUsuario { get; set; }
         public string Password { get; set; }
-        public int Fk_Rol { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public Rol Rol { get; set; }
+
+      
 
     }
 }

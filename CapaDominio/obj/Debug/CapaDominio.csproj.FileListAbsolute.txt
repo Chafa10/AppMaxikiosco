@@ -28,3 +28,9 @@ C:\Users\usuario\Desktop\AppMaxikiosco\AppMaxikiosco\AppMaxikiosco\AppMaxikiosco
 C:\Users\usuario\Desktop\AppMaxikiosco\AppMaxikiosco\AppMaxikiosco\AppMaxikiosco\CapaDominio\obj\Debug\CapaDominio.csproj.CoreCompileInputs.cache
 C:\Users\usuario\Desktop\AppMaxikiosco\AppMaxikiosco\AppMaxikiosco\AppMaxikiosco\CapaDominio\obj\Debug\CapaDominio.dll
 C:\Users\usuario\Desktop\AppMaxikiosco\AppMaxikiosco\AppMaxikiosco\AppMaxikiosco\CapaDominio\obj\Debug\CapaDominio.pdb
+C:\Users\javie\OneDrive\Desktop\AppMaxikiosco\AppMaxikiosco\CapaDominio\bin\Debug\CapaDominio.dll
+C:\Users\javie\OneDrive\Desktop\AppMaxikiosco\AppMaxikiosco\CapaDominio\bin\Debug\CapaDominio.pdb
+C:\Users\javie\OneDrive\Desktop\AppMaxikiosco\AppMaxikiosco\CapaDominio\obj\Debug\CapaDominio.csproj.AssemblyReference.cache
+C:\Users\javie\OneDrive\Desktop\AppMaxikiosco\AppMaxikiosco\CapaDominio\obj\Debug\CapaDominio.csproj.CoreCompileInputs.cache
+C:\Users\javie\OneDrive\Desktop\AppMaxikiosco\AppMaxikiosco\CapaDominio\obj\Debug\CapaDominio.dll
+C:\Users\javie\OneDrive\Desktop\AppMaxikiosco\AppMaxikiosco\CapaDominio\obj\Debug\CapaDominio.pdb

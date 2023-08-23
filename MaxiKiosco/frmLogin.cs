@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 namespace MaxiKiosco
 {
-    public partial class Login : Form
+    public partial class frmLogin : Form
     {
         private List<Usuario> listaUsuarios = null;
         Helper helper = new Helper();
-        public Login()
+        public frmLogin()
         {
             InitializeComponent();
         }
@@ -97,6 +97,15 @@ namespace MaxiKiosco
 
         private void txtIniciar_Click(object sender, EventArgs e)
         {
+            validarUsuario();
+
+
+        }
+
+        public void validarUsuario()
+        {
+            Usuario user = new Usuario();
+
             UsuarioNegocio negocio = new UsuarioNegocio();
             listaUsuarios = negocio.listaUsuario();
             foreach (Usuario usuario in listaUsuarios)
@@ -104,28 +113,33 @@ namespace MaxiKiosco
                 if (txtUsuario.Text.Equals(usuario.NomUsuario))
                 {
                     if (txtPass.Text.Equals(usuario.Password))
-                    { 
+                    {
+
                         helper.mostrarMensaje("Usuario y Contraseña Correctos", "Info", "Bienvenido");
-                        Principal pantalla = new Principal();
+                        frmPrincipal pantalla = new frmPrincipal(usuario);
                         pantalla.Show();
                         this.Close();
-
+                        user = usuario;
+                        break;
                     }
                     else
                     {
+                        user = usuario;
                         helper.mostrarMensaje("Contraseña incorrecta", "Error", "ERROR AL INICIAR SESION");
+                        break;
 
                     }
                 }
                 else
                 {
-                    helper.mostrarMensaje("Usuario incorrecto", "Error", "ERROR AL INICIAR SESION");
+                    user = null;
                 }
             }
 
-            
-            
-            
+            if(user == null)
+            {
+                helper.mostrarMensaje("Usuario incorrecto", "Error", "ERROR AL INICIAR SESION");
+            }
         }
     }
 }

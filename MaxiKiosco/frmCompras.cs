@@ -64,7 +64,6 @@ namespace MaxiKiosco
         {
             dgvProductosProveedor.Columns["Id"].Visible = false;
             dgvProductosProveedor.Columns["StockMinimo"].Visible = false;
-            dgvProductosProveedor.Columns["StockMaximo"].Visible = false;
             dgvProductosProveedor.Columns["Activo"].Visible = false;
             dgvProductosProveedor.Columns["IdProvedor"].Visible = false;
             dgvProductosProveedor.Columns["Nombre_Proveedor"].Visible = false;

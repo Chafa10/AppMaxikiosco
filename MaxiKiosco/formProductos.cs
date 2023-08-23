@@ -82,8 +82,9 @@ namespace MaxiKiosco
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            frmPrincipal pantalla = new frmPrincipal();
-            pantalla.Show();
+
+            frmPrincipal ventana = new frmPrincipal();
+            ventana.Show();
             this.Close();
         }
 
