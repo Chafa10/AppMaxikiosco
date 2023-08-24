@@ -25,8 +25,8 @@ namespace MaxiKiosco
         private void btnAgregarClientes_Click(object sender, EventArgs e)
         {
             frmAltaCliente altaCliente = new frmAltaCliente();
-            altaCliente.ShowDialog();
-            cargarLista();
+            altaCliente.Show();
+            this.Close();
         }
 
         private void cargarLista()
@@ -54,8 +54,8 @@ namespace MaxiKiosco
 
 
                 frmAltaCliente modificarCliente = new frmAltaCliente(seleccionado);
-                modificarCliente.ShowDialog();
-                cargarLista();
+                modificarCliente.Show();
+                this.Close();
             }
         }
 
@@ -115,10 +115,46 @@ namespace MaxiKiosco
 
             if (dgvClientes.DataSource != null)
             {
-                listaClienteFiltrada = listaClientes.FindAll(x => x.Nombre.ToUpper().Contains(filtroCliente.ToUpper()));
+                listaClienteFiltrada = listaClientes.FindAll(x => x.Apellido.ToUpper().Contains(filtroCliente.ToUpper()));
                 dgvClientes.DataSource = null;
                 dgvClientes.DataSource = listaClienteFiltrada;
                 ocultarColumnas();
+            }
+        }
+
+        private void formClientes_Load(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void btnMinimixar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        int mx, my;
+        bool m = false;
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            m = false;
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            m = true; mx = e.X; my = e.Y;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (m == true)
+            {
+                this.SetDesktopLocation(MousePosition.X - mx - 0, MousePosition.Y - my);
+
             }
         }
     }

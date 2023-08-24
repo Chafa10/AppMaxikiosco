@@ -14,11 +14,18 @@ namespace MaxiKiosco
 {
     public partial class frmUsuario : Form
     {
-      
 
+        Usuario usuario = null;
         public frmUsuario()
         {
             InitializeComponent();
+
+        }
+
+        public frmUsuario(Usuario usuario)
+        {
+            InitializeComponent();
+            this.usuario = usuario;
 
         }
 
@@ -54,9 +61,18 @@ namespace MaxiKiosco
 
         private void btnAgregarClientes_Click(object sender, EventArgs e)
         {
-            frmAltaUsuario ventana = new frmAltaUsuario();
-            ventana.Show();
-            this.Close();
+            if (!string.IsNullOrEmpty(usuario.NomUsuario))
+            {
+                frmAltaUsuario ventana = new frmAltaUsuario(usuario);
+                ventana.Show();
+                this.Close();
+            }
+            else
+            {
+                frmAltaUsuario ventana = new frmAltaUsuario();
+                ventana.Show();
+                this.Close();
+            }
         }
 
         private void btnVolver_Click(object sender, EventArgs e)

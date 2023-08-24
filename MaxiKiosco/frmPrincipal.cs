@@ -105,14 +105,28 @@ namespace MaxiKiosco
 
         private void btnAgregarUsuario_Click(object sender, EventArgs e)
         {
-            frmUsuario ventana = new frmUsuario();
-            ventana.Show();
-            this.Close();
+            if (!string.IsNullOrEmpty(user.NomUsuario))
+            {
+                frmUsuario ventana = new frmUsuario(user);
+                ventana.Show();
+                this.Close();
+            }
+            else
+            {
+                frmUsuario ventana = new frmUsuario();
+                ventana.Show();
+                this.Close();
+            }
+            
         }
+
+     
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             m = false;
         }
+
+       
     }
 }

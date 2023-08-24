@@ -1,4 +1,5 @@
 create database MAXIKIOSCO_DB
+use MAXIKIOSCO_DB
 
 create table PROVEDOR(
 Id int identity,
@@ -30,44 +31,58 @@ Categoria varchar(25) not null,
 Marca varchar(25) not null,
 Cantidad int not null default 1,
 StockMinimo int not null default 1,
-StockMaximo int not null default 1,
-Precio int not null,
+Precio decimal not null,
+PrecioProveedor decimal not null,
 Activo bit default 1,
 IdProvedor int,
 primary key(Id),
 foreign key (IdProvedor) references PROVEDOR(Id)
 )
 
-insert into PRODUCTO
-values ('Gaseosa','Coca Cola', 100, 60, 200, 500, 1, 1)
-insert into PRODUCTO
-values ('Yerba','Playadito', 30, 10, 30, 300, 1, 1)
-insert into PRODUCTO
-values ('Yerba','Taragui', 30, 10, 30, 330, 1, 1)
+SELECT * FROM PRODUCTO
+insert into PRODUCTO 
+values ('Gaseosa','CocaCol',10,5,500,300,1,1)
+
+insert into CLIENTE
+values ('Javier','Gonzalez', '36777999', '20367779995', 'respInscripto', '20/3/1994','Av siempre viva 2536','Guernica','jgonzalez@gmail.com', '1134567890',1)
+insert into CLIENTE
+values ('Daiana','Velazquez', '39888666', '20398886663', 'monotributo', '09/05/1995','Av Olivera 1532','Guernica','dvelazquezz@gmail.com', '1123452160',1)
+insert into CLIENTE
+values ('Sebastianr','Felsch', '33932126', '20339321265', 'consFinal', '09/06/1988','Calle falsa 123','Guernica','sfelsch@gmail.com', '1137795756',1)
 
 
-select * from PRODUCTO
-
-create table Rol (
+create table CLIENTE(
 id int identity,
-nombre varchar(30),
-descripcion varchar(30)
+nombre varchar(25) not null,
+apellido varchar(25) not null,
+dni varchar(25) not null,
+cuilCuit varchar(25) not null,
+condicionIva varchar(25) not null,
+fechaNacimiento varchar(25),
+direccion varchar(25),
+localidad varchar(25),
+mail varchar(25),
+telefono varchar(25),
+activo bit not null default 1,
+primary key(id)
+)
+
+create table ROL (
+id int identity,
+nombre varchar(30) not null,
+descricpcion varchar(20) not null,
 primary key (id)
 )
 
-create table Usuario(
-id int identity,
-nombreUsuario varchar(30),
-contrasenia varchar(30),
+create table USUARIO (
+nombreUsuario varchar(30) unique,
+nombre varchar(30) not null,
+apellido varchar(30) not null,
+contrasenia varchar(30) not null,
 idRol int,
-primary key (id),
+primary key (nombreUsuario),
 foreign key (idRol) references Rol(id)
 )
 
-insert into Rol
-VALUES ('Administrador','MASTER')
-insert into Rol
-VALUES ('Usuario','Normal')
-
 insert into Usuario
-Values ('Javierg','123',1)
+values ('javier123','Javier', 'González', 123, 1)

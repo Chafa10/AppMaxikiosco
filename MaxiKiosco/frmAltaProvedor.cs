@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CapaDominio;
 using CapaNegocio;
 
+
 namespace MaxiKiosco
 {
     public partial class frmAltaProvedor : Form
@@ -31,7 +32,9 @@ namespace MaxiKiosco
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Close();
+            formProveedor ventana = new formProveedor();
+            ventana.Show();
+            this.Close();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -53,20 +56,54 @@ namespace MaxiKiosco
                 provedor.Cuit = int.Parse(txtCuit.Text);
                 provedor.Activo = true;
 
-                if(provedor.Id != 0)
+                TextBox[] arrayTextbox = new TextBox[] { txtNombre, txtTelefono, txtMail, txtDireccion, txtCuit };
+
+                bool camposIncompletos = false;
+
+                foreach (var item in arrayTextbox)
                 {
-                    provedorNegocio.modificarProvedor(provedor);
-                    DialogResult resultado = MessageBox.Show("Modificaste el provedor exitosamente!!!", "Modificacion Provedor", MessageBoxButtons.OK);
-                    if (resultado == DialogResult.OK)
-                        Close();
+                    if (string.IsNullOrEmpty(item.Text))
+                    {
+                        camposIncompletos = true;
+                        break;
+                    }
+                
                 }
+
+                if (camposIncompletos == false)
+                {
+                    if (provedor.Id != 0)
+                    {
+                        provedorNegocio.modificarProvedor(provedor);
+                        DialogResult resultado = MessageBox.Show("Modificaste el provedor exitosamente!!!", "Modificacion Provedor", MessageBoxButtons.OK);
+                        if (resultado == DialogResult.OK)
+                        {
+                            formProveedor ventana = new formProveedor();
+                            ventana.Show();
+                            this.Close();
+                        }
+
+                    }
+                    else
+                    {
+                        provedorNegocio.agregarProvedor(provedor);
+                        DialogResult resultado = MessageBox.Show("Agregaste el provedor exitosamente!!!", "Nuevo Provedor", MessageBoxButtons.OK);
+                        if (resultado == DialogResult.OK)
+                        {
+                            formProveedor ventana = new formProveedor();
+                            ventana.Show();
+                            this.Close();
+                        }
+
+                    }
+                }
+
                 else
                 {
-                    provedorNegocio.agregarProvedor(provedor);
-                    DialogResult resultado = MessageBox.Show("Agregaste el provedor exitosamente!!!", "Nuevo Provedor", MessageBoxButtons.OK);
-                    if (resultado == DialogResult.OK)
-                        Close();
+                    MessageBox.Show("Debe Completar todos los campos para dar el alta o modificacion a un proveedor");
                 }
+
+               
                 
 
 
@@ -74,8 +111,8 @@ namespace MaxiKiosco
             }
             catch (Exception)
             {
+                MessageBox.Show("Debe Completar todos los campos para dar el alta o modificacion a un proveedor");
 
-                throw;
             }
         }
 
@@ -97,6 +134,75 @@ namespace MaxiKiosco
 
                 throw;
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.WindowState= FormWindowState.Minimized;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        int mx, my;
+        bool m = false;
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            m = false;
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (m == true)
+            {
+                this.SetDesktopLocation(MousePosition.X - mx - 0, MousePosition.Y - my);
+
+            }
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Helper.soloNumeros(e);
+        }
+
+        private void txtMail_Leave(object sender, EventArgs e)
+        {
+            if (!Helper.validarEmail(txtMail.Text))
+            {
+                if (string.IsNullOrEmpty(txtMail.Text))
+                {
+
+                }
+
+                else
+                {
+                    MessageBox.Show("Por favor, ingresa un correo electrónico válido.", "Correo electrónico inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtMail.Focus();
+                }
+
+            }
+        }
+
+        private void txtDireccion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Helper.soloNumerosYLetras(e);
+        }
+
+        private void txtCuit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Helper.soloNumeros(e);
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Helper.soloNumerosYLetras(e);
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            m = true; mx = e.X; my = e.Y;
         }
     }
 }

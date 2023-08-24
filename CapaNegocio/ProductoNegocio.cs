@@ -35,7 +35,7 @@ namespace CapaNegocio
                     auxiliar.Marca = (string)datos.Lector["Marca"];
                     auxiliar.StockMinimo = (int)datos.Lector["StockMinimo"];
                     auxiliar.Cantidad = (int)datos.Lector["Cantidad"];
-                    auxiliar.Precio = (int)datos.Lector["Precio"];
+                    auxiliar.Precio = (decimal)datos.Lector["Precio"];
                     auxiliar.PrecioProveedor = (decimal)datos.Lector["PrecioProveedor"];
                     auxiliar.Activo = (bool)datos.Lector["Activo"];
                     auxiliar.IdProvedor = (int)datos.Lector["IdProvedor"];
@@ -80,7 +80,7 @@ namespace CapaNegocio
                     auxiliar.Marca = (string)datos.Lector["Marca"];
                     auxiliar.StockMinimo = (int)datos.Lector["StockMinimo"];
                     auxiliar.Cantidad = (int)datos.Lector["Cantidad"];
-                    auxiliar.Precio = (int)datos.Lector["Precio"];
+                    auxiliar.Precio = (decimal)datos.Lector["Precio"];
                     auxiliar.Activo = (bool)datos.Lector["Activo"];
                     auxiliar.IdProvedor = (int)datos.Lector["IdProvedor"];
                     auxiliar.Nombre_Proveedor = (string)datos.Lector["Nom_razonsocial"];

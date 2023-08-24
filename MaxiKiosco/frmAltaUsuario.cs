@@ -20,6 +20,12 @@ namespace MaxiKiosco
             InitializeComponent();
         }
 
+        public frmAltaUsuario(Usuario usuario)
+        {
+            InitializeComponent();
+            this.usuario = usuario;
+        }
+
         private void AltaUsuario_Load(object sender, EventArgs e)
         {
             RolNegocio negocio = new RolNegocio();
@@ -28,6 +34,12 @@ namespace MaxiKiosco
                 cmbRol.DataSource = negocio.listaRoles();
                 cmbRol.DisplayMember = "nombre";
                 cmbRol.ValueMember = "id";
+                if (usuario.Rol.Id == 2)
+                {
+                    cmbRol.SelectedIndex = 1;
+                    cmbRol.Enabled= false;
+                }
+                    
             }
             catch (Exception ex)
             {
@@ -68,6 +80,26 @@ namespace MaxiKiosco
             frmUsuario ventana = new frmUsuario();
             ventana.Show();
             this.Close();
+        }
+
+        private void txtNombreUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Helper.soloNumerosYLetras(e);
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Helper.soloLetras(e);
+        }
+
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Helper.soloLetras(e);
+        }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Helper.soloNumerosYLetras(e);
         }
     }
 }

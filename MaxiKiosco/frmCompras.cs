@@ -24,9 +24,9 @@ namespace MaxiKiosco
             productoNe = new ProductoNegocio();
             InitializeComponent();      
             cargarcmb();      
-            //cargarGrilla(provedor.Id);
+            cargarGrilla(provedor.Id);
             
-            //crearTitulosTabla();
+            crearTitulosTabla();
 
             // Agregamos el evento CellValidating para validar la entrada en la columna "CantidadCompra"
             dgvListaCompra.CellValidating += dgvListaCompra_CellValidating;

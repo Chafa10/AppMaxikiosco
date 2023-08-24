@@ -23,28 +23,29 @@ namespace MaxiKiosco
 
         private void btnModificarProvedor_Click(object sender, EventArgs e)
         {
-            if (dgvProvedor.CurrentRow != null)
+            if (dgvClientes.CurrentRow != null)
             {
                 Provedor seleccionado;
-                seleccionado = (Provedor)dgvProvedor.CurrentRow.DataBoundItem;
+                seleccionado = (Provedor)dgvClientes.CurrentRow.DataBoundItem;
 
 
                 frmAltaProvedor modificarProvedor = new frmAltaProvedor(seleccionado);
-                modificarProvedor.ShowDialog();
-                cargarLista();
+                modificarProvedor.Show();
+                this.Close();
+                
             }
         }
         private void cargarLista()
         {
             ProvedorNegocio provedorNegocio = new ProvedorNegocio();
             listaProvedor = provedorNegocio.listaProvedor();
-            dgvProvedor.DataSource = listaProvedor;
+            dgvClientes.DataSource = listaProvedor;
             OcultarColumnasProvedor();
         }
 
         private void OcultarColumnasProvedor()
         {
-            dgvProvedor.Columns["id"].Visible = false;
+            dgvClientes.Columns["id"].Visible = false;
         }
 
         private void txtFiltroProvedor_TextChanged(object sender, EventArgs e)
@@ -52,11 +53,11 @@ namespace MaxiKiosco
             string filtroProvedor = txtFiltroProvedor.Text;
             List<Provedor> listaProvedorFiltrada = new List<Provedor>();
 
-            if (dgvProvedor.DataSource != null)
+            if (dgvClientes.DataSource != null)
             {
                 listaProvedorFiltrada = listaProvedor.FindAll(x => x.Nombre.ToUpper().Contains(filtroProvedor.ToUpper()));
-                dgvProvedor.DataSource = null;
-                dgvProvedor.DataSource = listaProvedorFiltrada;
+                dgvClientes.DataSource = null;
+                dgvClientes.DataSource = listaProvedorFiltrada;
                 OcultarColumnasProvedor();
             }
         }
@@ -64,16 +65,17 @@ namespace MaxiKiosco
         private void btnAgregarProvedor_Click(object sender, EventArgs e)
         {
             frmAltaProvedor altaProvedor = new frmAltaProvedor();
-            altaProvedor.ShowDialog();
-            cargarLista();
+            altaProvedor.Show();
+            this.Close();
+            
         }
 
         private void btnElimiarProvedor_Click(object sender, EventArgs e)
         {
-            if (dgvProvedor.CurrentRow != null)
+            if (dgvClientes.CurrentRow != null)
             {
                 Provedor seleccionado;
-                seleccionado = (Provedor)dgvProvedor.CurrentRow.DataBoundItem;
+                seleccionado = (Provedor)dgvClientes.CurrentRow.DataBoundItem;
 
                 try
                 {
@@ -99,6 +101,38 @@ namespace MaxiKiosco
             frmPrincipal ventana = new frmPrincipal();
             ventana.Show();
             this.Close();
+        }
+
+        private void btnMinimixar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
+        int mx, my;
+        bool m = false;
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            m = false;
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (m == true)
+            {
+                this.SetDesktopLocation(MousePosition.X - mx - 0, MousePosition.Y - my);
+
+            }
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            m = true; mx = e.X; my = e.Y;
         }
     }
 }

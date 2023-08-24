@@ -50,7 +50,7 @@ namespace MaxiKiosco
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.panel1.BackColor = System.Drawing.Color.SteelBlue;
             this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -75,6 +75,7 @@ namespace MaxiKiosco
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.ForeColor = System.Drawing.Color.DimGray;
             this.txtUsuario.Location = new System.Drawing.Point(414, 145);
+            this.txtUsuario.MaxLength = 30;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(352, 19);
             this.txtUsuario.TabIndex = 1;
@@ -107,6 +108,7 @@ namespace MaxiKiosco
             this.txtPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPass.ForeColor = System.Drawing.Color.DimGray;
             this.txtPass.Location = new System.Drawing.Point(414, 211);
+            this.txtPass.MaxLength = 30;
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(352, 19);
             this.txtPass.TabIndex = 3;
@@ -177,7 +179,7 @@ namespace MaxiKiosco
             this.lblCerrar.Text = "X";
             this.lblCerrar.Click += new System.EventHandler(this.lblCerrar_Click);
             // 
-            // Login
+            // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -194,7 +196,7 @@ namespace MaxiKiosco
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Login";
+            this.Name = "frmLogin";
             this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LOGIN";

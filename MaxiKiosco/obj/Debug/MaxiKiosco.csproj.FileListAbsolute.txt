@@ -150,7 +150,6 @@ C:\Users\javie\OneDrive\Desktop\AppMaxikiosco\AppMaxikiosco\MaxiKiosco\obj\Debug
 C:\Users\javie\OneDrive\Desktop\AppMaxikiosco\AppMaxikiosco\MaxiKiosco\obj\Debug\MaxiKiosco.frmAltaCliente.resources
 C:\Users\javie\OneDrive\Desktop\AppMaxikiosco\AppMaxikiosco\MaxiKiosco\obj\Debug\MaxiKiosco.frmAltaProducto.resources
 C:\Users\javie\OneDrive\Desktop\AppMaxikiosco\AppMaxikiosco\MaxiKiosco\obj\Debug\MaxiKiosco.frmAltaProvedor.resources
-C:\Users\javie\OneDrive\Desktop\AppMaxikiosco\AppMaxikiosco\MaxiKiosco\obj\Debug\MaxiKiosco.frmProducto.resources
 C:\Users\javie\OneDrive\Desktop\AppMaxikiosco\AppMaxikiosco\MaxiKiosco\obj\Debug\MaxiKiosco.Properties.Resources.resources
 C:\Users\javie\OneDrive\Desktop\AppMaxikiosco\AppMaxikiosco\MaxiKiosco\obj\Debug\MaxiKiosco.csproj.GenerateResource.cache
 C:\Users\javie\OneDrive\Desktop\AppMaxikiosco\AppMaxikiosco\MaxiKiosco\obj\Debug\MaxiKiosco.csproj.CoreCompileInputs.cache
@@ -160,3 +159,4 @@ C:\Users\javie\OneDrive\Desktop\AppMaxikiosco\AppMaxikiosco\MaxiKiosco\obj\Debug
 C:\Users\javie\OneDrive\Desktop\AppMaxikiosco\AppMaxikiosco\MaxiKiosco\obj\Debug\MaxiKiosco.frmAltaUsuario.resources
 C:\Users\javie\OneDrive\Desktop\AppMaxikiosco\AppMaxikiosco\MaxiKiosco\obj\Debug\MaxiKiosco.frmUsuario.resources
 C:\Users\javie\OneDrive\Desktop\AppMaxikiosco\AppMaxikiosco\MaxiKiosco\obj\Debug\MaxiKiosco.frmLogin.resources
+C:\Users\javie\OneDrive\Desktop\AppMaxikiosco\AppMaxikiosco\MaxiKiosco\obj\Debug\MaxiKiosco.frmInventario.resources

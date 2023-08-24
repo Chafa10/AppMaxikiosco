@@ -13,7 +13,7 @@ namespace CapaDominio
         public string Marca { get; set; }
         public int Cantidad { get; set; }
         public int StockMinimo { get; set; }
-        public int Precio { get; set; }
+        public decimal Precio { get; set; }
         public decimal PrecioProveedor { get; set; }
         public bool Activo { get; set; }
         public int IdProvedor { get; set; }

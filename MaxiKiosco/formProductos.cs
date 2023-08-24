@@ -68,16 +68,16 @@ namespace MaxiKiosco
 
 
                 frmAltaProducto modificarProducto = new frmAltaProducto(seleccionado);
-                modificarProducto.ShowDialog();
-                cargarLista();
+                modificarProducto.Show();
+                this.Close();
             }
         }
 
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
             frmAltaProducto altaProducto = new frmAltaProducto();
-            altaProducto.ShowDialog();
-            cargarLista();
+            altaProducto.Show();
+            this.Close();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -100,6 +100,37 @@ namespace MaxiKiosco
                 dgvProductos.DataSource = listaProductosFiltrada;
                 ocultarColumnas();
             }
+        }
+
+        private void btnMinimixar_Click(object sender, EventArgs e)
+        {
+            this.WindowState= FormWindowState.Minimized;
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        int mx, my;
+        bool m = false;
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (m == true)
+            {
+                this.SetDesktopLocation(MousePosition.X - mx - 0, MousePosition.Y - my);
+
+            }
+        }
+
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            m = false;
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            m = true; mx = e.X; my = e.Y;
         }
     }
 }
