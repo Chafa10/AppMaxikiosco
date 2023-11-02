@@ -57,6 +57,10 @@ namespace MaxiKiosco
         private void ocultarColumnas()
         {
             dgvProductos.Columns["Id"].Visible = false;
+            dgvProductos.Columns["activo"].Visible = false;
+            dgvProductos.Columns["IdProvedor"].Visible = false;
+            dgvProductos.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
         }
 
         private void btnModificarProducto_Click(object sender, EventArgs e)
@@ -126,6 +130,13 @@ namespace MaxiKiosco
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             m = false;
+        }
+
+        private void formProductos_Load(object sender, EventArgs e)
+        {
+            txtFiltroProducto.AutoCompleteCustomSource = Helper.CargarDatosProductos();
+            txtFiltroProducto.AutoCompleteMode= AutoCompleteMode.Suggest;
+            txtFiltroProducto.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)

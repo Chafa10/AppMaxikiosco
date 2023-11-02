@@ -23,10 +23,10 @@ namespace MaxiKiosco
 
         private void btnModificarProvedor_Click(object sender, EventArgs e)
         {
-            if (dgvClientes.CurrentRow != null)
+            if (dgvProveedores.CurrentRow != null)
             {
                 Provedor seleccionado;
-                seleccionado = (Provedor)dgvClientes.CurrentRow.DataBoundItem;
+                seleccionado = (Provedor)dgvProveedores.CurrentRow.DataBoundItem;
 
 
                 frmAltaProvedor modificarProvedor = new frmAltaProvedor(seleccionado);
@@ -39,13 +39,15 @@ namespace MaxiKiosco
         {
             ProvedorNegocio provedorNegocio = new ProvedorNegocio();
             listaProvedor = provedorNegocio.listaProvedor();
-            dgvClientes.DataSource = listaProvedor;
+            dgvProveedores.DataSource = listaProvedor;
             OcultarColumnasProvedor();
         }
 
         private void OcultarColumnasProvedor()
         {
-            dgvClientes.Columns["id"].Visible = false;
+            dgvProveedores.Columns["id"].Visible = false;
+            dgvProveedores.Columns["activo"].Visible = false;
+            dgvProveedores.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
         private void txtFiltroProvedor_TextChanged(object sender, EventArgs e)
@@ -53,11 +55,11 @@ namespace MaxiKiosco
             string filtroProvedor = txtFiltroProvedor.Text;
             List<Provedor> listaProvedorFiltrada = new List<Provedor>();
 
-            if (dgvClientes.DataSource != null)
+            if (dgvProveedores.DataSource != null)
             {
-                listaProvedorFiltrada = listaProvedor.FindAll(x => x.Nombre.ToUpper().Contains(filtroProvedor.ToUpper()));
-                dgvClientes.DataSource = null;
-                dgvClientes.DataSource = listaProvedorFiltrada;
+                listaProvedorFiltrada = listaProvedor.FindAll(x => x.Nombre.Contains(filtroProvedor)); 
+                dgvProveedores.DataSource = null;
+                dgvProveedores.DataSource = listaProvedorFiltrada;
                 OcultarColumnasProvedor();
             }
         }
@@ -72,10 +74,10 @@ namespace MaxiKiosco
 
         private void btnElimiarProvedor_Click(object sender, EventArgs e)
         {
-            if (dgvClientes.CurrentRow != null)
+            if (dgvProveedores.CurrentRow != null)
             {
                 Provedor seleccionado;
-                seleccionado = (Provedor)dgvClientes.CurrentRow.DataBoundItem;
+                seleccionado = (Provedor)dgvProveedores.CurrentRow.DataBoundItem;
 
                 try
                 {
@@ -128,6 +130,13 @@ namespace MaxiKiosco
                 this.SetDesktopLocation(MousePosition.X - mx - 0, MousePosition.Y - my);
 
             }
+        }
+
+        private void formProveedor_Load(object sender, EventArgs e)
+        {
+            txtFiltroProvedor.AutoCompleteCustomSource = Helper.CargarDatosProveedor();
+            txtFiltroProvedor.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtFiltroProvedor.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)

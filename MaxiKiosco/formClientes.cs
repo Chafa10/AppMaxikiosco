@@ -24,6 +24,8 @@ namespace MaxiKiosco
 
         private void btnAgregarClientes_Click(object sender, EventArgs e)
         {
+           
+
             frmAltaCliente altaCliente = new frmAltaCliente();
             altaCliente.Show();
             this.Close();
@@ -42,6 +44,8 @@ namespace MaxiKiosco
         {
             dgvClientes.Columns["Id"].Visible= false;
             dgvClientes.Columns["activo"].Visible = false;
+            dgvClientes.Columns["condicioniva"].Visible = false;
+            dgvClientes.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
         }
 
@@ -115,7 +119,7 @@ namespace MaxiKiosco
 
             if (dgvClientes.DataSource != null)
             {
-                listaClienteFiltrada = listaClientes.FindAll(x => x.Apellido.ToUpper().Contains(filtroCliente.ToUpper()));
+                listaClienteFiltrada = listaClientes.FindAll(x => x.Apellido.Contains(filtroCliente));
                 dgvClientes.DataSource = null;
                 dgvClientes.DataSource = listaClienteFiltrada;
                 ocultarColumnas();
@@ -124,8 +128,12 @@ namespace MaxiKiosco
 
         private void formClientes_Load(object sender, EventArgs e)
         {
-           
+            txtFiltroCliente.AutoCompleteCustomSource = Helper.CargarDatosClientes();
+            txtFiltroCliente.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtFiltroCliente.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
+
+        
 
         private void btnMinimixar_Click(object sender, EventArgs e)
         {
@@ -148,6 +156,8 @@ namespace MaxiKiosco
         {
             this.Close();
         }
+
+     
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {

@@ -86,3 +86,25 @@ foreign key (idRol) references Rol(id)
 
 insert into Usuario
 values ('javier123','Javier', 'González', 123, 1)
+
+--- Hay que cambiar ciertas columnas como la de fecha por datetimepick y se saca condicioniva para cambiarlo por idcondicioniva asi hago la relacion con la tabla condicioniva
+
+alter table cliente
+add IdCondicionIva int,
+foreign key (IdCondicionIva) references condicionIva(IdIva)
+
+create table condicionIva(
+IdIva int identity primary key,
+CondicionIva varchar(30)
+)
+
+insert into condicionIva values ('Monotributista')
+insert into condicionIva values ('RespInscripto')
+
+-- cambio a varchar por tamaño del numero
+alter table provedor
+add Cuit varchar(11)
+
+--agrege activo para la baja logica
+alter table usuario
+add activo bit

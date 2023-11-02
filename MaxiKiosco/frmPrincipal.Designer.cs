@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-            this.btnProducto = new System.Windows.Forms.Button();
+            this.btnProveedores = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -57,22 +57,22 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnProducto
+            // btnProveedores
             // 
-            this.btnProducto.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnProducto.FlatAppearance.BorderSize = 0;
-            this.btnProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProducto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProducto.ForeColor = System.Drawing.Color.White;
-            this.btnProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnProducto.Image")));
-            this.btnProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProducto.Location = new System.Drawing.Point(25, 176);
-            this.btnProducto.Name = "btnProducto";
-            this.btnProducto.Size = new System.Drawing.Size(150, 53);
-            this.btnProducto.TabIndex = 0;
-            this.btnProducto.Text = "        Proveedores";
-            this.btnProducto.UseVisualStyleBackColor = false;
-            this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
+            this.btnProveedores.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnProveedores.FlatAppearance.BorderSize = 0;
+            this.btnProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProveedores.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProveedores.ForeColor = System.Drawing.Color.White;
+            this.btnProveedores.Image = ((System.Drawing.Image)(resources.GetObject("btnProveedores.Image")));
+            this.btnProveedores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProveedores.Location = new System.Drawing.Point(25, 176);
+            this.btnProveedores.Name = "btnProveedores";
+            this.btnProveedores.Size = new System.Drawing.Size(150, 53);
+            this.btnProveedores.TabIndex = 0;
+            this.btnProveedores.Text = "        Proveedores";
+            this.btnProveedores.UseVisualStyleBackColor = false;
+            this.btnProveedores.Click += new System.EventHandler(this.btnProducto_Click);
             // 
             // btnProductos
             // 
@@ -162,7 +162,7 @@
             this.groupBox1.Controls.Add(this.btnCerrarSesion);
             this.groupBox1.Controls.Add(this.btnClientes);
             this.groupBox1.Controls.Add(this.btnInventario);
-            this.groupBox1.Controls.Add(this.btnProducto);
+            this.groupBox1.Controls.Add(this.btnProveedores);
             this.groupBox1.Controls.Add(this.btnCompras);
             this.groupBox1.Controls.Add(this.btnProductos);
             this.groupBox1.Controls.Add(this.button1);
@@ -361,6 +361,7 @@
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPrincipal";
+            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -375,7 +376,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnProducto;
+        private System.Windows.Forms.Button btnProveedores;
         private System.Windows.Forms.Button btnProductos;
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Button button1;

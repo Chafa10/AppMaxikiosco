@@ -55,29 +55,23 @@ namespace MaxiKiosco
         private void ocultarColumnas()
         {
             dgvUsuarios.Columns["Password"].Visible= false;
-         
+            dgvUsuarios.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
 
         }
 
         private void btnAgregarClientes_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(usuario.NomUsuario))
-            {
+           
                 frmAltaUsuario ventana = new frmAltaUsuario(usuario);
                 ventana.Show();
                 this.Close();
-            }
-            else
-            {
-                frmAltaUsuario ventana = new frmAltaUsuario();
-                ventana.Show();
-                this.Close();
-            }
+           
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            frmPrincipal pantalla = new frmPrincipal();
+            frmPrincipal pantalla = new frmPrincipal(usuario);
             pantalla.Show();
             this.Close();
         }
@@ -90,6 +84,46 @@ namespace MaxiKiosco
         private void brnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnEliminarClientes_Click(object sender, EventArgs e)
+        {
+            if (dgvUsuarios.CurrentRow != null)
+            {
+                Usuario seleccionado;
+                seleccionado = (Usuario)dgvUsuarios.CurrentRow.DataBoundItem;
+
+                try
+                {
+                    UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
+                    usuarioNegocio.eliminadoLogicoUsuario(seleccionado.NomUsuario);
+                    MessageBox.Show("Usuario " + seleccionado.NomUsuario + " dado de baja", "Baja de usuario", MessageBoxButtons.OK);
+                    cargarGrillaUsuarios();
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+
+            }
+        }
+
+        private void btnModificarClientes_Click(object sender, EventArgs e)
+        {
+           
+
+            if (dgvUsuarios.CurrentRow != null)
+            {
+                Usuario seleccionado;
+                seleccionado = (Usuario)dgvUsuarios.CurrentRow.DataBoundItem;
+
+
+                frmAltaUsuario ventana = new frmAltaUsuario(usuario, seleccionado);
+                ventana.Show();
+                this.Close();
+            }
+
         }
     }
 }

@@ -15,7 +15,7 @@ namespace CapaNegocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.SetearConsulta("SELECT nombreUsuario, contrasenia, U.nombre as nombreReal, apellido, U.idRol, R.nombre as nombreRol FROM Usuario U inner join Rol R on U.idRol = R.id");
+                datos.SetearConsulta("SELECT nombreUsuario, contrasenia, U.nombre as nombreReal, apellido, U.idRol, R.nombre as nombreRol, activo FROM Usuario U inner join Rol R on U.idRol = R.id where activo = 1");
                 datos.EjectuarLectura();
 
                 while (datos.Lector.Read())
@@ -28,6 +28,7 @@ namespace CapaNegocio
                     aux.Rol = new Rol();
                     aux.Rol.Id = (int)datos.Lector["idRol"];
                     aux.Rol.Nombre = (string)datos.Lector["nombreRol"];
+                    aux.activo = (bool)datos.Lector["activo"];
                     lista.Add(aux);
                 }
 
@@ -50,12 +51,13 @@ namespace CapaNegocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.SetearConsulta("insert into USUARIO Values(@usuario, @nombre, @apellido, @password, @idRol)");
+                datos.SetearConsulta("insert into USUARIO Values(@usuario, @nombre, @apellido, @password, @idRol, activo = 1)");
                 datos.SetearParametro("@usuario", usuario.NomUsuario);
                 datos.SetearParametro("@nombre", usuario.Nombre);
                 datos.SetearParametro("@apellido", usuario.Apellido);
                 datos.SetearParametro("@password", usuario.Password);
                 datos.SetearParametro("@idRol", usuario.Rol.Id);
+                
 
                 datos.EjecutarAccion();
 
@@ -68,6 +70,47 @@ namespace CapaNegocio
             finally
             {
                 datos.CerrarConexion();
+            }
+        }
+
+        public void modificarUsuario(Usuario usuarioSeleccionado)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetearConsulta("update Usuario set nombreUsuario = @NombreUsuario, nombre = @Nombre, apellido = @Apellido, contrasenia = @Contrasenia, idRol = @idRol, activo = 1 where nombreUsuario = @id");
+
+                datos.SetearParametro("@NombreUsuario", usuarioSeleccionado.NomUsuario);
+                datos.SetearParametro("@Nombre", usuarioSeleccionado.Nombre);
+                datos.SetearParametro("@Apellido", usuarioSeleccionado.Apellido);
+                datos.SetearParametro("@Contrasenia", usuarioSeleccionado.Password);
+                datos.SetearParametro("@idRol", usuarioSeleccionado.Rol.Id);
+                datos.SetearParametro("@id", usuarioSeleccionado.NomUsuario);
+              
+
+                datos.EjecutarAccion();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public void eliminadoLogicoUsuario(string nombreUsuario)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.SetearConsulta("UPDATE USUARIO SET Activo = 0 WHERE nombreUsuario = @NombreUsuario");
+                datos.SetearParametro("@NombreUsuario", nombreUsuario);
+                datos.EjecutarAccion();
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }

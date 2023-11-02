@@ -42,78 +42,92 @@ namespace MaxiKiosco
 
             ProvedorNegocio provedorNegocio = new ProvedorNegocio();
 
-            try
+            string cuit = txtCuit.Text;
+            bool validarEmpresa = Helper.CuilEmpresa(cuit);
+            bool esValido = Helper.ValidarCUIL(cuit);
+
+            if(esValido == true)
             {
-                if (provedor == null)
-                    provedor = new Provedor();
-
-                
-
-                provedor.Nombre = txtNombre.Text;
-                provedor.Telefono = int.Parse(txtTelefono.Text);
-                provedor.Mail = txtMail.Text;
-                provedor.Direccion = txtDireccion.Text;
-                provedor.Cuit = int.Parse(txtCuit.Text);
-                provedor.Activo = true;
-
-                TextBox[] arrayTextbox = new TextBox[] { txtNombre, txtTelefono, txtMail, txtDireccion, txtCuit };
-
-                bool camposIncompletos = false;
-
-                foreach (var item in arrayTextbox)
+                try
                 {
-                    if (string.IsNullOrEmpty(item.Text))
-                    {
-                        camposIncompletos = true;
-                        break;
-                    }
-                
-                }
+                    if (provedor == null)
+                        provedor = new Provedor();
 
-                if (camposIncompletos == false)
-                {
-                    if (provedor.Id != 0)
+
+
+                    provedor.Nombre = txtNombre.Text;
+                    provedor.Telefono = int.Parse(txtTelefono.Text);
+                    provedor.Mail = txtMail.Text;
+                    provedor.Direccion = txtDireccion.Text;
+                    provedor.Cuit = txtCuit.Text;
+                    provedor.Activo = true;
+
+                    TextBox[] arrayTextbox = new TextBox[] { txtNombre, txtTelefono, txtMail, txtDireccion, txtCuit };
+
+                    bool camposIncompletos = false;
+
+                    foreach (var item in arrayTextbox)
                     {
-                        provedorNegocio.modificarProvedor(provedor);
-                        DialogResult resultado = MessageBox.Show("Modificaste el provedor exitosamente!!!", "Modificacion Provedor", MessageBoxButtons.OK);
-                        if (resultado == DialogResult.OK)
+                        if (string.IsNullOrEmpty(item.Text))
                         {
-                            formProveedor ventana = new formProveedor();
-                            ventana.Show();
-                            this.Close();
+                            camposIncompletos = true;
+                            break;
                         }
 
                     }
+
+                    if (camposIncompletos == false)
+                    {
+                        if (provedor.Id != 0)
+                        {
+                            provedorNegocio.modificarProvedor(provedor);
+                            DialogResult resultado = MessageBox.Show("Modificaste el provedor exitosamente!!!", "Modificacion Provedor", MessageBoxButtons.OK);
+                            if (resultado == DialogResult.OK)
+                            {
+                                formProveedor ventana = new formProveedor();
+                                ventana.Show();
+                                this.Close();
+                            }
+
+                        }
+                        else
+                        {
+                            provedorNegocio.agregarProvedor(provedor);
+                            DialogResult resultado = MessageBox.Show("Agregaste el provedor exitosamente!!!", "Nuevo Provedor", MessageBoxButtons.OK);
+                            if (resultado == DialogResult.OK)
+                            {
+                                formProveedor ventana = new formProveedor();
+                                ventana.Show();
+                                this.Close();
+                            }
+
+                        }
+                    }
+
                     else
                     {
-                        provedorNegocio.agregarProvedor(provedor);
-                        DialogResult resultado = MessageBox.Show("Agregaste el provedor exitosamente!!!", "Nuevo Provedor", MessageBoxButtons.OK);
-                        if (resultado == DialogResult.OK)
-                        {
-                            formProveedor ventana = new formProveedor();
-                            ventana.Show();
-                            this.Close();
-                        }
-
+                        MessageBox.Show("Debe Completar todos los campos para dar el alta o modificacion a un proveedor");
                     }
-                }
 
-                else
+
+
+
+
+
+                }
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Debe Completar todos los campos para dar el alta o modificacion a un proveedor");
+                    MessageBox.Show(ex.ToString());
+
                 }
-
-               
-                
-
-
-
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("Debe Completar todos los campos para dar el alta o modificacion a un proveedor");
-
+                MessageBox.Show("Cuit no es valido");
             }
+
+
+            
         }
 
         private void frmAltaProvedor_Load(object sender, EventArgs e)
@@ -187,7 +201,7 @@ namespace MaxiKiosco
 
         private void txtDireccion_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Helper.soloNumerosYLetras(e);
+            Helper.soloNumerosYLetrasYEspacios(e, txtDireccion);
         }
 
         private void txtCuit_KeyPress(object sender, KeyPressEventArgs e)
@@ -197,7 +211,7 @@ namespace MaxiKiosco
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Helper.soloNumerosYLetras(e);
+            Helper.soloNumerosYLetrasYEspacios(e, txtNombre);
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)

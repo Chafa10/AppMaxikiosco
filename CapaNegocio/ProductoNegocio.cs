@@ -16,8 +16,8 @@ namespace CapaNegocio
 
             try
             {
-                datos.SetearConsulta("select Pro.Id, Categoria, Marca , StockMinimo, Cantidad, " +
-                                      "Precio, PrecioProveedor, Pro.Activo, IdProvedor ,Nom_razonsocial from PRODUCTO Pro " +
+                datos.SetearConsulta("select Pro.Id, Categoria, Marca , StockMinimo, Cantidad," +
+                                      "Precio, PrecioProveedor, PorcentajeGanancia, Pro.Activo, IdProvedor ,Nom_razonsocial from PRODUCTO Pro " +
                                       "inner join PROVEDOR  DOR on Pro.IdProvedor = DOR.Id " +
                                       "Where Pro.Activo = 1");
 
@@ -37,6 +37,7 @@ namespace CapaNegocio
                     auxiliar.Cantidad = (int)datos.Lector["Cantidad"];
                     auxiliar.Precio = (decimal)datos.Lector["Precio"];
                     auxiliar.PrecioProveedor = (decimal)datos.Lector["PrecioProveedor"];
+                    auxiliar.PorcentajeGanancia = (string)datos.Lector["PorcentajeGanancia"];
                     auxiliar.Activo = (bool)datos.Lector["Activo"];
                     auxiliar.IdProvedor = (int)datos.Lector["IdProvedor"];
                     auxiliar.Nombre_Proveedor = (string)datos.Lector["Nom_razonsocial"];
@@ -65,7 +66,7 @@ namespace CapaNegocio
 
             try
             {
-                datos.SetearConsulta("select Pro.Id, Categoria, Marca , StockMinimo, Cantidad, " +
+                datos.SetearConsulta("select Pro.Id, Categoria, Marca , StockMinimo, Cantidad, PorcentajeGanancia " +
                                      "Precio, Pro.Activo, IdProvedor ,Nom_razonsocial, PrecioProveedor from PRODUCTO Pro " +
                                      "inner join PROVEDOR  DOR on Pro.IdProvedor = DOR.Id " +
                                      "Where Pro.Activo = 1 and DOR.Id = " + id_proveedor);
@@ -81,6 +82,7 @@ namespace CapaNegocio
                     auxiliar.StockMinimo = (int)datos.Lector["StockMinimo"];
                     auxiliar.Cantidad = (int)datos.Lector["Cantidad"];
                     auxiliar.Precio = (decimal)datos.Lector["Precio"];
+                    auxiliar.PorcentajeGanancia = (string)datos.Lector["PorcentajeGanancia"];
                     auxiliar.Activo = (bool)datos.Lector["Activo"];
                     auxiliar.IdProvedor = (int)datos.Lector["IdProvedor"];
                     auxiliar.Nombre_Proveedor = (string)datos.Lector["Nom_razonsocial"];
@@ -111,12 +113,13 @@ namespace CapaNegocio
 
             try
             {
-                datos.SetearConsulta("insert into producto values(@categoria, @marca, @cantidad, @stockMinimo, @precio, @precioProveedor, @activo, @idProvedor)");
+                datos.SetearConsulta("insert into producto values(@categoria, @marca, @cantidad, @stockMinimo, @precio, @precioProveedor, @activo, @idProvedor, @porcentajeGanancia)");
                 datos.SetearParametro("@categoria", nuevo.Categoria);
                 datos.SetearParametro("@marca", nuevo.Marca);
                 datos.SetearParametro("@cantidad", nuevo.Cantidad);
                 datos.SetearParametro("@stockMinimo", nuevo.StockMinimo);
                 datos.SetearParametro("@precio", nuevo.Precio);
+                datos.SetearParametro("@porcentajeGanancia", nuevo.PorcentajeGanancia);
                 datos.SetearParametro("@precioProveedor", nuevo.PrecioProveedor);
                 datos.SetearParametro("@activo", nuevo.Activo);
                 datos.SetearParametro("@idProvedor", nuevo.IdProvedor);
@@ -142,13 +145,14 @@ namespace CapaNegocio
 
             try
             {
-                datos.SetearConsulta("UPDATE PRODUCTO SET Categoria = @categoria, Marca = @marca, Cantidad = @cantidad, StockMinimo = @stockMinimo, Precio = @precio, PrecioProveedor = @precioProveedor, Activo = 1 WHERE Id = @id");
+                datos.SetearConsulta("UPDATE PRODUCTO SET Categoria = @categoria, Marca = @marca, Cantidad = @cantidad, StockMinimo = @stockMinimo, Precio = @precio, PorcentajeGanancia = @porcentajeGanancia, PrecioProveedor = @precioProveedor, Activo = 1 WHERE Id = @id");
 
                 datos.SetearParametro("@categoria", productoSeleccionado.Categoria);
                 datos.SetearParametro("@marca", productoSeleccionado.Marca);
                 datos.SetearParametro("@cantidad", productoSeleccionado.Cantidad);
                 datos.SetearParametro("@stockMinimo", productoSeleccionado.StockMinimo);
                 datos.SetearParametro("@precio", productoSeleccionado.Precio);
+                datos.SetearParametro("@porcentajeGanancia", productoSeleccionado.PorcentajeGanancia);
                 datos.SetearParametro("@precioProveedor", productoSeleccionado.PrecioProveedor);
                 datos.SetearParametro("@id", productoSeleccionado.Id);
 

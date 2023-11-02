@@ -14,16 +14,21 @@ namespace MaxiKiosco
 {
     public partial class frmAltaUsuario : Form
     {
-        Usuario usuario = null;
-        public frmAltaUsuario()
+        Usuario user = null;
+        Usuario usuarioRol = null;
+        public frmAltaUsuario(Usuario usuarioRol)
         {
             InitializeComponent();
+            this.usuarioRol= usuarioRol;
+            lblTitulo.Text = "Agregar usuario";
         }
 
-        public frmAltaUsuario(Usuario usuario)
+        public frmAltaUsuario(Usuario usuarioRol, Usuario userModificar)
         {
             InitializeComponent();
-            this.usuario = usuario;
+            this.usuarioRol = usuarioRol;
+            this.user = userModificar;
+            lblTitulo.Text = "Modificar usuario";
         }
 
         private void AltaUsuario_Load(object sender, EventArgs e)
@@ -34,11 +39,21 @@ namespace MaxiKiosco
                 cmbRol.DataSource = negocio.listaRoles();
                 cmbRol.DisplayMember = "nombre";
                 cmbRol.ValueMember = "id";
-                if (usuario.Rol.Id == 2)
+                if (usuarioRol.Rol.Id == 2)
                 {
                     cmbRol.SelectedIndex = 1;
                     cmbRol.Enabled= false;
                 }
+
+                if(user != null)
+                {
+                    txtApellido.Text = user.Apellido;
+                    txtNombre.Text = user.Nombre;
+                    txtNombreUsuario.Text = user.NomUsuario;
+                    txtPassword.Text = user.Password;
+                    cmbRol.SelectedValue = user.Rol.Id;
+                }
+                
                     
             }
             catch (Exception ex)
@@ -53,19 +68,39 @@ namespace MaxiKiosco
             try
             {
                 UsuarioNegocio negocio = new UsuarioNegocio();
-                usuario = new Usuario();
+                if(user == null)
+                    user = new Usuario();
 
-                usuario.NomUsuario = txtNombreUsuario.Text;
-                usuario.Nombre = txtNombre.Text;
-                usuario.Apellido = txtApellido.Text;
-                usuario.Password = txtPassword.Text;
-                usuario.Rol = (Rol)cmbRol.SelectedItem;
+                user.NomUsuario = txtNombreUsuario.Text;
+                user.Nombre = txtNombre.Text;
+                user.Apellido = txtApellido.Text;
+                user.Password = txtPassword.Text;
+                user.Rol = (Rol)cmbRol.SelectedItem;
 
-                negocio.NuevoUsuario(usuario);
+                if(user.activo == false)
+                {
+                    negocio.NuevoUsuario(user);
 
-                MessageBox.Show("Usuario dado de alta");
+                    MessageBox.Show("Usuario dado de alta");
 
-                this.Close();
+                    frmUsuario ventana = new frmUsuario(usuarioRol);
+                    ventana.Show();
+                    this.Close();
+                }     
+                
+                else
+                {
+                    negocio.modificarUsuario(user);
+
+                    MessageBox.Show("Usuario Modificado");
+
+                    frmUsuario ventana = new frmUsuario(usuarioRol);
+                    ventana.Show();
+                    this.Close();
+                }
+              
+
+                
 
             }
             catch (Exception)
@@ -77,7 +112,7 @@ namespace MaxiKiosco
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            frmUsuario ventana = new frmUsuario();
+            frmUsuario ventana = new frmUsuario(usuarioRol);
             ventana.Show();
             this.Close();
         }
@@ -100,6 +135,16 @@ namespace MaxiKiosco
         private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
             Helper.soloNumerosYLetras(e);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

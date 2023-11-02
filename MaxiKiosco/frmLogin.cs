@@ -117,6 +117,7 @@ namespace MaxiKiosco
 
                         helper.mostrarMensaje("Usuario y Contraseña Correctos", "Info", "Bienvenido");
                         frmPrincipal pantalla = new frmPrincipal(usuario);
+                        Helper.Login = usuario;
                         pantalla.Show();
                         this.Close();
                         user = usuario;

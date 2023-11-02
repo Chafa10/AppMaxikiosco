@@ -32,7 +32,6 @@ namespace MaxiKiosco
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAltaCliente));
             this.cmbCondIva = new System.Windows.Forms.ComboBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.txtFechaNac = new System.Windows.Forms.TextBox();
             this.txtCuilCuit = new System.Windows.Forms.TextBox();
             this.txtDni = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
@@ -58,6 +57,7 @@ namespace MaxiKiosco
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.btnMinimixar = new System.Windows.Forms.Button();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,27 +69,18 @@ namespace MaxiKiosco
             this.cmbCondIva.Location = new System.Drawing.Point(162, 325);
             this.cmbCondIva.Name = "cmbCondIva";
             this.cmbCondIva.Size = new System.Drawing.Size(121, 29);
-            this.cmbCondIva.TabIndex = 26;
+            this.cmbCondIva.TabIndex = 4;
             // 
             // txtDireccion
             // 
             this.txtDireccion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccion.Location = new System.Drawing.Point(494, 176);
+            this.txtDireccion.Location = new System.Drawing.Point(510, 132);
             this.txtDireccion.MaxLength = 25;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.ShortcutsEnabled = false;
             this.txtDireccion.Size = new System.Drawing.Size(122, 27);
-            this.txtDireccion.TabIndex = 20;
-            // 
-            // txtFechaNac
-            // 
-            this.txtFechaNac.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFechaNac.Location = new System.Drawing.Point(494, 133);
-            this.txtFechaNac.MaxLength = 25;
-            this.txtFechaNac.Name = "txtFechaNac";
-            this.txtFechaNac.ShortcutsEnabled = false;
-            this.txtFechaNac.Size = new System.Drawing.Size(122, 27);
-            this.txtFechaNac.TabIndex = 18;
+            this.txtDireccion.TabIndex = 5;
+            this.txtDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDireccion_KeyPress);
             // 
             // txtCuilCuit
             // 
@@ -99,7 +90,7 @@ namespace MaxiKiosco
             this.txtCuilCuit.Name = "txtCuilCuit";
             this.txtCuilCuit.ShortcutsEnabled = false;
             this.txtCuilCuit.Size = new System.Drawing.Size(122, 27);
-            this.txtCuilCuit.TabIndex = 16;
+            this.txtCuilCuit.TabIndex = 3;
             this.txtCuilCuit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCuilCuit_KeyPress);
             // 
             // txtDni
@@ -110,7 +101,7 @@ namespace MaxiKiosco
             this.txtDni.Name = "txtDni";
             this.txtDni.ShortcutsEnabled = false;
             this.txtDni.Size = new System.Drawing.Size(122, 27);
-            this.txtDni.TabIndex = 14;
+            this.txtDni.TabIndex = 2;
             this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             // 
             // txtApellido
@@ -121,7 +112,7 @@ namespace MaxiKiosco
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.ShortcutsEnabled = false;
             this.txtApellido.Size = new System.Drawing.Size(122, 27);
-            this.txtApellido.TabIndex = 12;
+            this.txtApellido.TabIndex = 1;
             this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // label8
@@ -129,7 +120,7 @@ namespace MaxiKiosco
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(386, 225);
+            this.label8.Location = new System.Drawing.Point(402, 179);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(91, 21);
             this.label8.TabIndex = 25;
@@ -140,7 +131,7 @@ namespace MaxiKiosco
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(390, 179);
+            this.label7.Location = new System.Drawing.Point(406, 135);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(87, 21);
             this.label7.TabIndex = 22;
@@ -151,7 +142,7 @@ namespace MaxiKiosco
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(319, 135);
+            this.label5.Location = new System.Drawing.Point(335, 330);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(158, 21);
             this.label5.TabIndex = 21;
@@ -209,7 +200,7 @@ namespace MaxiKiosco
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.ShortcutsEnabled = false;
             this.txtNombre.Size = new System.Drawing.Size(122, 27);
-            this.txtNombre.TabIndex = 11;
+            this.txtNombre.TabIndex = 0;
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // label6
@@ -217,7 +208,7 @@ namespace MaxiKiosco
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(431, 278);
+            this.label6.Location = new System.Drawing.Point(447, 228);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 21);
             this.label6.TabIndex = 27;
@@ -228,7 +219,7 @@ namespace MaxiKiosco
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(397, 328);
+            this.label9.Location = new System.Drawing.Point(413, 273);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(80, 21);
             this.label9.TabIndex = 28;
@@ -237,34 +228,34 @@ namespace MaxiKiosco
             // txtLocalidad
             // 
             this.txtLocalidad.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLocalidad.Location = new System.Drawing.Point(494, 225);
+            this.txtLocalidad.Location = new System.Drawing.Point(510, 176);
             this.txtLocalidad.MaxLength = 25;
             this.txtLocalidad.Name = "txtLocalidad";
             this.txtLocalidad.ShortcutsEnabled = false;
             this.txtLocalidad.Size = new System.Drawing.Size(122, 27);
-            this.txtLocalidad.TabIndex = 29;
+            this.txtLocalidad.TabIndex = 6;
             this.txtLocalidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLocalidad_KeyPress);
             // 
             // txtMail
             // 
             this.txtMail.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMail.Location = new System.Drawing.Point(494, 276);
+            this.txtMail.Location = new System.Drawing.Point(510, 225);
             this.txtMail.MaxLength = 25;
             this.txtMail.Name = "txtMail";
             this.txtMail.ShortcutsEnabled = false;
             this.txtMail.Size = new System.Drawing.Size(122, 27);
-            this.txtMail.TabIndex = 30;
+            this.txtMail.TabIndex = 7;
             this.txtMail.Leave += new System.EventHandler(this.txtMail_Leave);
             // 
             // txtTelefono
             // 
             this.txtTelefono.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono.Location = new System.Drawing.Point(494, 325);
+            this.txtTelefono.Location = new System.Drawing.Point(510, 273);
             this.txtTelefono.MaxLength = 15;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.ShortcutsEnabled = false;
             this.txtTelefono.Size = new System.Drawing.Size(122, 27);
-            this.txtTelefono.TabIndex = 31;
+            this.txtTelefono.TabIndex = 8;
             this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // label10
@@ -301,7 +292,7 @@ namespace MaxiKiosco
             this.btnCancelar.Location = new System.Drawing.Point(420, 433);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(123, 37);
-            this.btnCancelar.TabIndex = 35;
+            this.btnCancelar.TabIndex = 11;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -319,7 +310,7 @@ namespace MaxiKiosco
             this.btnAceptar.Location = new System.Drawing.Point(233, 433);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(120, 37);
-            this.btnAceptar.TabIndex = 34;
+            this.btnAceptar.TabIndex = 10;
             this.btnAceptar.Text = "Agregar";
             this.btnAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAceptar.UseVisualStyleBackColor = false;
@@ -404,12 +395,20 @@ namespace MaxiKiosco
             this.btnMinimixar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnMinimixar.UseVisualStyleBackColor = false;
             // 
+            // dtpFecha
+            // 
+            this.dtpFecha.Location = new System.Drawing.Point(510, 330);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(200, 20);
+            this.dtpFecha.TabIndex = 9;
+            // 
             // frmAltaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             this.ClientSize = new System.Drawing.Size(720, 542);
+            this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
@@ -421,7 +420,6 @@ namespace MaxiKiosco
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cmbCondIva);
             this.Controls.Add(this.txtDireccion);
-            this.Controls.Add(this.txtFechaNac);
             this.Controls.Add(this.txtCuilCuit);
             this.Controls.Add(this.txtDni);
             this.Controls.Add(this.txtApellido);
@@ -449,7 +447,6 @@ namespace MaxiKiosco
 
         private System.Windows.Forms.ComboBox cmbCondIva;
         private System.Windows.Forms.TextBox txtDireccion;
-        private System.Windows.Forms.TextBox txtFechaNac;
         private System.Windows.Forms.TextBox txtCuilCuit;
         private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.TextBox txtApellido;
@@ -475,5 +472,6 @@ namespace MaxiKiosco
         private System.Windows.Forms.Button btnMinimixar;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
     }
 }

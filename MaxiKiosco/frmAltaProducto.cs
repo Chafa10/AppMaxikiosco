@@ -21,6 +21,7 @@ namespace MaxiKiosco
         {
             InitializeComponent();
             lblTitulo.Text = "Nuevo Producto";
+            lblPorcentaje.Text = "0%";
         }
 
         public frmAltaProducto(Producto producto)
@@ -79,10 +80,14 @@ namespace MaxiKiosco
                 producto.Marca = txtMarca.Text;
                 producto.Cantidad = int.Parse(txtCantidad.Text);
                 producto.StockMinimo = int.Parse(txtStockMinimo.Text);
-                producto.Precio = int.Parse(txtPrecio.Text);
+                producto.Precio = decimal.Parse(txtPrecio.Text);
                 producto.PrecioProveedor = decimal.Parse(txtPrecioProveedor.Text);
+                producto.PorcentajeGanancia = lblPorcentaje.Text;
                 producto.Activo = true;
-                producto.IdProvedor = (int)cmbProvedor.SelectedValue;
+                if(cmbProvedor != null)
+                    producto.IdProvedor = (int)cmbProvedor.SelectedValue;
+                
+                
 
                 TextBox[] arrayTxt = new TextBox[] { txtCantidad, txtCategoria, txtMarca, txtPrecio, txtPrecioProveedor, txtStockMinimo };
 
@@ -132,10 +137,10 @@ namespace MaxiKiosco
                
                 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                MessageBox.Show("Debe Completar todos los campos para dar el alta o modificacion a un Producto");
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -176,7 +181,7 @@ namespace MaxiKiosco
 
         private void txtMarca_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Helper.soloLetras(e);
+            Helper.soloNumerosYLetrasYEspacios(e, txtMarca);
         }
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
@@ -198,6 +203,31 @@ namespace MaxiKiosco
         {
             Helper.UnaComa(e, txtPrecio.Text);
         }
+
+        private void trbPorcentajeGanancia_ValueChanged(object sender, EventArgs e)
+        {
+            if(!string.IsNullOrEmpty(txtPrecioProveedor.Text))
+            {
+                
+                decimal porcentajeGanancia = trbPorcentajeGanancia.Value;
+
+                lblPorcentaje.Text = $"{porcentajeGanancia}%";
+
+
+                decimal costoProducto = int.Parse(txtPrecioProveedor.Text);
+
+
+                decimal porcentajeDecimal = porcentajeGanancia / 100;
+                decimal ganancia = costoProducto * porcentajeDecimal;
+                decimal precioVenta = costoProducto + ganancia;
+
+                
+                txtPrecio.Text = precioVenta.ToString();
+            }
+           
+        }
+
+     
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {

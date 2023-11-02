@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsuario));
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.btnEliminarClientes = new System.Windows.Forms.Button();
@@ -54,48 +54,48 @@
             this.dgvUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvUsuarios.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvUsuarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvUsuarios.ColumnHeadersHeight = 30;
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUsuarios.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUsuarios.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvUsuarios.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvUsuarios.EnableHeadersVisualStyles = false;
             this.dgvUsuarios.GridColor = System.Drawing.Color.SteelBlue;
-            this.dgvUsuarios.Location = new System.Drawing.Point(35, 167);
+            this.dgvUsuarios.Location = new System.Drawing.Point(61, 167);
             this.dgvUsuarios.MultiSelect = false;
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvUsuarios.RowHeadersVisible = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsuarios.Size = new System.Drawing.Size(398, 383);
+            this.dgvUsuarios.Size = new System.Drawing.Size(447, 383);
             this.dgvUsuarios.TabIndex = 22;
             // 
             // btnEliminarClientes
@@ -107,13 +107,14 @@
             this.btnEliminarClientes.ForeColor = System.Drawing.Color.White;
             this.btnEliminarClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarClientes.Image")));
             this.btnEliminarClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminarClientes.Location = new System.Drawing.Point(459, 404);
+            this.btnEliminarClientes.Location = new System.Drawing.Point(561, 358);
             this.btnEliminarClientes.Name = "btnEliminarClientes";
             this.btnEliminarClientes.Size = new System.Drawing.Size(123, 37);
             this.btnEliminarClientes.TabIndex = 30;
             this.btnEliminarClientes.Text = "Eliminar";
             this.btnEliminarClientes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminarClientes.UseVisualStyleBackColor = false;
+            this.btnEliminarClientes.Click += new System.EventHandler(this.btnEliminarClientes_Click);
             // 
             // btnModificarClientes
             // 
@@ -124,13 +125,14 @@
             this.btnModificarClientes.ForeColor = System.Drawing.Color.White;
             this.btnModificarClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnModificarClientes.Image")));
             this.btnModificarClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificarClientes.Location = new System.Drawing.Point(459, 307);
+            this.btnModificarClientes.Location = new System.Drawing.Point(561, 261);
             this.btnModificarClientes.Name = "btnModificarClientes";
             this.btnModificarClientes.Size = new System.Drawing.Size(123, 37);
             this.btnModificarClientes.TabIndex = 29;
             this.btnModificarClientes.Text = "Modificar";
             this.btnModificarClientes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModificarClientes.UseVisualStyleBackColor = false;
+            this.btnModificarClientes.Click += new System.EventHandler(this.btnModificarClientes_Click);
             // 
             // btnAgregarClientes
             // 
@@ -141,7 +143,7 @@
             this.btnAgregarClientes.ForeColor = System.Drawing.Color.White;
             this.btnAgregarClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarClientes.Image")));
             this.btnAgregarClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarClientes.Location = new System.Drawing.Point(462, 213);
+            this.btnAgregarClientes.Location = new System.Drawing.Point(564, 167);
             this.btnAgregarClientes.Name = "btnAgregarClientes";
             this.btnAgregarClientes.Size = new System.Drawing.Size(120, 37);
             this.btnAgregarClientes.TabIndex = 28;
@@ -157,7 +159,7 @@
             this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVolver.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
-            this.btnVolver.Location = new System.Drawing.Point(35, 101);
+            this.btnVolver.Location = new System.Drawing.Point(61, 101);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(83, 40);
             this.btnVolver.TabIndex = 33;
@@ -171,9 +173,9 @@
             this.panel2.Controls.Add(this.brnCerrar);
             this.panel2.Controls.Add(this.btnMinimizar);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(2, -2);
+            this.panel2.Location = new System.Drawing.Point(-22, -2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(607, 56);
+            this.panel2.Size = new System.Drawing.Size(752, 56);
             this.panel2.TabIndex = 34;
             // 
             // brnCerrar
@@ -183,7 +185,7 @@
             this.brnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.brnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.brnCerrar.ForeColor = System.Drawing.Color.White;
-            this.brnCerrar.Location = new System.Drawing.Point(555, 7);
+            this.brnCerrar.Location = new System.Drawing.Point(668, 7);
             this.brnCerrar.Name = "brnCerrar";
             this.brnCerrar.Size = new System.Drawing.Size(49, 42);
             this.brnCerrar.TabIndex = 2;
@@ -199,7 +201,7 @@
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimizar.ForeColor = System.Drawing.Color.White;
-            this.btnMinimizar.Location = new System.Drawing.Point(511, 11);
+            this.btnMinimizar.Location = new System.Drawing.Point(613, 11);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(49, 42);
             this.btnMinimizar.TabIndex = 1;
@@ -224,7 +226,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(52)))), ((int)(((byte)(75)))));
-            this.ClientSize = new System.Drawing.Size(609, 600);
+            this.ClientSize = new System.Drawing.Size(707, 600);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnEliminarClientes);

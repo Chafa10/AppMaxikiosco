@@ -43,9 +43,9 @@ namespace MaxiKiosco
             ClienteNegocio clienteNegocio = new ClienteNegocio();
             try
             {
-                cmbCondIva.DataSource = clienteNegocio.listaCliente();
-                cmbCondIva.DisplayMember = "condicionIva";
-                cmbCondIva.ValueMember = "Id";
+                cmbCondIva.DataSource = clienteNegocio.listarCondicionIva();
+                cmbCondIva.DisplayMember = "CondicionIva";
+                cmbCondIva.ValueMember = "IdIva";
 
                 if(cliente != null)
                 {
@@ -53,11 +53,12 @@ namespace MaxiKiosco
                     txtTelefono.Text = cliente.Telefono;
                     txtMail.Text = cliente.Mail;
                     txtLocalidad.Text = cliente.Localidad;
-                    txtFechaNac.Text = cliente.FechaNacimiento;
+                    dtpFecha.Value = (DateTime)cliente.FechaNacimiento;
                     txtDni.Text = cliente.Dni;
                     txtDireccion.Text = cliente.Direccion;
                     txtCuilCuit.Text = cliente.CuilCuit;
                     txtApellido.Text = cliente.Apellido;
+                    cmbCondIva.SelectedValue = cliente.CondicionIva;         
                 }
               
                 
@@ -99,84 +100,111 @@ namespace MaxiKiosco
         {
             ClienteNegocio clienteNegocio = new ClienteNegocio();
 
-            try
+            string cuit = txtCuilCuit.Text;
+            bool verificarPersona = Helper.CuilPersona(cuit);
+            bool esValido =  Helper.ValidarCUIL(cuit);
+
+
+
+            if(txtDni.Text.Length == 8 && Helper.CompararDniYCuit(txtCuilCuit.Text, txtDni.Text))
             {
-                if (cliente == null)
-                    cliente = new Cliente();
-
-
-                cliente.Nombre = txtNombre.Text;
-                cliente.Apellido = txtApellido.Text;
-                cliente.Dni = txtDni.Text;
-                cliente.CuilCuit = txtCuilCuit.Text;
-                cliente.FechaNacimiento = txtFechaNac.Text;
-                cliente.Direccion = txtDireccion.Text;
-                cliente.Localidad = txtLocalidad.Text;
-                cliente.Mail = txtMail.Text;
-                cliente.Telefono = txtTelefono.Text;
-                cliente.CondicionIva = cmbCondIva.Text;
-                cliente.Activo = true;
-
-                TextBox[] arrayTxt = new TextBox[] { txtApellido, txtCuilCuit, txtDireccion, txtDni, txtFechaNac, txtLocalidad, txtMail, txtNombre, txtTelefono };
-
-                bool camposIncompletos = false;
-
-                foreach (var item in arrayTxt)
+                if (esValido == true && verificarPersona == true)
                 {
-                    if (string.IsNullOrEmpty(item.Text))
+                    try
                     {
-                        camposIncompletos= true;
-                        break;
-                    }
-                    else
-                    {
+                        if (cliente == null)
+                            cliente = new Cliente();
 
-                    }
-                }
 
-                if (camposIncompletos == false)
-                {
-                    if (cliente.Id != 0)
-                    {
-                        clienteNegocio.modificarCliente(cliente);
-                        DialogResult resultado = MessageBox.Show("Modificaste el cliente exitosamente!!", "Modificacion de Cliente", MessageBoxButtons.OK);
-                        if (resultado == DialogResult.OK)
+                        cliente.Nombre = txtNombre.Text;
+                        cliente.Apellido = txtApellido.Text;
+                        cliente.Dni = txtDni.Text;
+                        cliente.CuilCuit = txtCuilCuit.Text;
+                        cliente.FechaNacimiento = dtpFecha.Value;
+                        cliente.Direccion = txtDireccion.Text;
+                        cliente.Localidad = txtLocalidad.Text;
+                        cliente.Mail = txtMail.Text;
+                        cliente.Telefono = txtTelefono.Text;
+                        cliente.CondicionIva = (int)cmbCondIva.SelectedValue;
+                        cliente.Activo = true;
+
+                        TextBox[] arrayTxt = new TextBox[] { txtApellido, txtCuilCuit, txtDireccion, txtDni, txtLocalidad, txtMail, txtNombre, txtTelefono };
+
+                        bool camposIncompletos = false;
+
+                        foreach (var item in arrayTxt)
                         {
-                            formClientes ventana = new formClientes();
-                            ventana.Show();
-                            this.Close();
+                            if (string.IsNullOrEmpty(item.Text))
+                            {
+                                camposIncompletos = true;
+                                break;
+                            }
+                            else
+                            {
+
+                            }
                         }
 
-                    }
-                    else
-                    {
-                        clienteNegocio.agregarCliente(cliente);
-                        DialogResult resultado = MessageBox.Show("Agregaste el cliente exitosamente!!", "Modificacion de Cliente", MessageBoxButtons.OK);
-                        if (resultado == DialogResult.OK)
+                        if (camposIncompletos == false)
                         {
-                            formClientes ventana = new formClientes();
-                            ventana.Show();
-                            this.Close();
+                            if (cliente.Id != 0)
+                            {
+                                clienteNegocio.modificarCliente(cliente);
+                                DialogResult resultado = MessageBox.Show("Modificaste el cliente exitosamente!!", "Modificacion de Cliente", MessageBoxButtons.OK);
+                                if (resultado == DialogResult.OK)
+                                {
+                                    formClientes ventana = new formClientes();
+                                    ventana.Show();
+                                    this.Close();
+                                }
+
+                            }
+                            else
+                            {
+                                clienteNegocio.agregarCliente(cliente);
+                                DialogResult resultado = MessageBox.Show("Agregaste el cliente exitosamente!!", "Modificacion de Cliente", MessageBoxButtons.OK);
+                                if (resultado == DialogResult.OK)
+                                {
+                                    formClientes ventana = new formClientes();
+                                    ventana.Show();
+                                    this.Close();
+                                }
+
+                            }
                         }
 
+                        else
+                        {
+                            MessageBox.Show("Debe Completar todos los campos para dar el alta o modificacion a un Cliente");
+                        }
+
+
+
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show(ex.ToString());
                     }
                 }
-
                 else
                 {
-                    MessageBox.Show("Debe Completar todos los campos para dar el alta o modificacion a un Cliente");
+                    MessageBox.Show("Cuit no es valido");
                 }
-
-               
-
-
             }
-            catch (Exception)
-            {
 
-                MessageBox.Show("Debe Completar todos los campos para dar el alta o modificacion a un Cliente");
+            else
+            {
+                MessageBox.Show("Dni no es valido");
             }
         }
+
+           
+
+            
+
+            
 
         private void btnCancelar_Click_1(object sender, EventArgs e)
         {
@@ -198,7 +226,7 @@ namespace MaxiKiosco
 
         private void txtLocalidad_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Helper.soloLetras(e);
+            Helper.soloNumerosYLetrasYEspacios(e, txtLocalidad);
         }
 
         private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
@@ -232,6 +260,11 @@ namespace MaxiKiosco
                 }
                 
             }
+        }
+
+        private void txtDireccion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Helper.soloNumerosYLetrasYEspacios(e, txtDireccion);
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)

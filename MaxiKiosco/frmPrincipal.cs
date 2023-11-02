@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaDominio;
+using CapaNegocio;
 
 namespace MaxiKiosco
 {
@@ -120,7 +121,17 @@ namespace MaxiKiosco
             
         }
 
-     
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+            
+            if(Helper.Login.Rol.Nombre == "Vendedor")
+            {
+                btnProveedores.Enabled = false;
+                btnProductos.Enabled = false;
+                btnAgregarUsuario.Enabled = false;
+                btnCompras.Enabled = false;
+            }
+        }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
